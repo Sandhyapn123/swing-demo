@@ -1,0 +1,13 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Start GUI
+    command: |
+      Xvfb :1 -screen 0 1024x768x16 & \
+      export DISPLAY=:1 && \
+      javac Main.java && java Main
+
+ports:
+  - port: 6080
+    onOpen: open-preview
